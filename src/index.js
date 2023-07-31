@@ -1,13 +1,16 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
+// Canvas.js
+import React from "react";
 
-import App from "./App";
-
-const rootElement = document.getElementById("root");
-const root = createRoot(rootElement);
-
-root.render(
-  <StrictMode>
-    <App />
-  </StrictMode>
-);
+export default function Canvas(props) {
+  //customized style for the squares
+  const styles = {
+    backgroundColor: props.value ? props.color : "transparent"
+  };
+  return (
+    <div
+      style={styles}
+      className="square"
+      onClick={() => props.toggle(props.id)}
+    ></div>
+  );
+}
